@@ -1,0 +1,780 @@
+/**
+ * NeoForest 2025 - Ana CSS Dosyası
+ * Bu dosya tüm sayfalarda kullanılan ortak stil tanımlarını içerir
+ */
+
+/* Temel Sıfırlama ve Genel Stiller */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Renk Değişkenleri */
+:root {
+    --primary-color: #8b5cf6;       /* Ana renk - Mor */
+    --secondary-color: #10b981;     /* İkincil renk - Yeşil */
+    --accent-color: #f97316;        /* Vurgu rengi - Turuncu */
+    --text-color: #f8fafc;          /* Metin rengi - Açık */
+    --bg-dark: #0f172a;             /* Arka plan - Koyu */
+    --neo-bg: rgba(15, 23, 42, 0.7); /* Kart arka planı */
+    --neo-border: rgba(139, 92, 246, 0.3); /* Kart kenarlığı - Mor tonu */
+    --neo-glow: rgba(139, 92, 246, 0.5);   /* Parıltı efekti - Mor tonu */
+    --neo-shadow: rgba(0, 0, 0, 0.4);      /* Gölge efekti */
+}
+
+/* Sayfa Arka Planı */
+body {
+    background-image: url('cursorarkafon.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Arka Plan Overlay - Daha koyu mor tonlarında */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(88, 28, 135, 0.7));
+    z-index: -1;
+}
+
+/* Sayfa Geçiş Efekti */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark);
+    z-index: 9999;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+body.page-transitioning .page-transition {
+    transform: translateY(0);
+}
+
+/* Metin Gradyanı */
+.text-gradient {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+/* Navbar Stilleri */
+.navbar-neo {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 0;
+    transition: all 0.3s;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-brand i {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+}
+
+.navbar-brand sup {
+    font-size: 0.6rem;
+    top: -1em;
+    color: var(--accent-color);
+}
+
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    padding: 0;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link:hover::before {
+    width: 80%;
+}
+
+.nav-link.active {
+    background: rgba(139, 92, 246, 0.2);
+    color: var(--text-color);
+}
+
+.nav-link.active::before {
+    width: 80%;
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.nav-link:hover .nav-icon,
+.nav-link.active .nav-icon {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Ana İçerik Stilleri */
+.main-content {
+    padding: 80px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hoşgeldin Mesajı */
+.welcome-message {
+    margin-bottom: 40px;
+}
+
+.welcome-message h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.welcome-message p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Neomorfik Kart Stilleri */
+.neo-card {
+    background: var(--neo-bg);
+    border-radius: 20px;
+    border: 1px solid var(--neo-border);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px var(--neo-shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.neo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--neo-shadow);
+    border-color: var(--primary-color);
+}
+
+.card-glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--neo-glow) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.1;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.section-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title i {
+    color: var(--primary-color);
+}
+
+/* Zamanlayıcı Stilleri */
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.timer-circle-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.timer-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.timer-circle:hover {
+    transform: scale(1.02);
+}
+
+.timer-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.timer-progress-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 5;
+}
+
+.timer-progress-fill {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 5;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    transition: stroke-dashoffset 0.3s;
+}
+
+.timer-content {
+    text-align: center;
+    z-index: 1;
+}
+
+.timer-display {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.timer-status {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.time-options {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.time-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.time-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    border: 1px solid var(--neo-border);
+    transition: all 0.3s;
+}
+
+.time-option:hover .time-icon {
+    background: rgba(139, 92, 246, 0.2);
+    transform: translateY(-3px);
+}
+
+.time-option.active .time-icon {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+}
+
+.time-option span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Orman Stilleri */
+.forest-container {
+    margin-top: 20px;
+}
+
+.forest-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    min-height: 150px;
+}
+
+.tree {
+    width: 50px;
+    height: 75px;
+    position: relative;
+    margin: 10px;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.5s;
+}
+
+.tree::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 15px;
+    background: #92400e; /* Kahverengi gövde */
+    border-radius: 2px;
+}
+
+.tree::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid var(--secondary-color);
+    transition: all 0.3s;
+}
+
+.tree.grow {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Farklı ağaç türleri */
+.tree-normal::after {
+    border-bottom-color: #10b981; /* Yeşil */
+}
+
+.tree-autumn::after {
+    border-bottom-color: #f97316; /* Turuncu */
+}
+
+.tree-spring::after {
+    border-bottom-color: #8b5cf6; /* Mor */
+}
+
+.tree-winter::after {
+    border-bottom-color: #38bdf8; /* Mavi */
+}
+
+/* İstatistik Kartları */
+.stats-container {
+    margin-top: 30px;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-content span {
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    font-family: 'Outfit', sans-serif;
+}
+
+.stat-content p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* Bildirim Stilleri */
+.notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--neo-bg);
+    color: var(--text-color);
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--neo-border);
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification.success i {
+    color: var(--secondary-color);
+}
+
+.notification.warning i {
+    color: var(--accent-color);
+}
+
+.notification.error i {
+    color: #ef4444;
+}
+
+/* Konfeti Efekti */
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.confetti {
+    position: absolute;
+    top: -10px;
+    width: 10px;
+    height: 20px;
+    background-color: var(--primary-color);
+    opacity: 0.8;
+    animation: fall 5s linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Buton Stilleri */
+.btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background: #7c3aed;
+    border-color: #7c3aed;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+    background: #0ca678;
+    border-color: #0ca678;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+.btn-outline-danger {
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.btn-outline-danger:hover, .btn-outline-danger:focus {
+    background: #ef4444;
+    color: white;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+}
+
+/* Ripple Efekti */
+.ripple {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Form Kontrolleri */
+.form-control, .form-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--neo-border);
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: 12px 15px;
+    transition: all 0.3s;
+}
+
+.form-control:focus, .form-select:focus {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(139, 92, 246, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.input-group-text {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--neo-border);
+    color: var(--text-color);
+    border-radius: 10px 0 0 10px;
+}
+
+/* Modal Stilleri */
+.modal-content {
+    background: var(--neo-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--neo-border);
+    border-radius: 15px;
+    color: var(--text-color);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Responsive Ayarlar */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 15px;
+    }
+    
+    .nav-link {
+        padding: 12px 15px;
+    }
+    
+    .main-content {
+        padding-top: 30px;
+    }
+    
+    .timer-circle {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .timer-display {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-message h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .timer-circle {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .timer-display {
+        font-size: 2.2rem;
+    }
+    
+    .time-options {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .time-option {
+        margin: 5px;
+    }
+    
+    .time-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .navbar-brand i {
+        font-size: 1.5rem;
+    }
+    
+    .welcome-message h1 {
+        font-size: 1.5rem;
+    }
+    
+    .welcome-message p {
+        font-size: 1rem;
+    }
+    
+    .timer-circle {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .timer-display {
+        font-size: 1.8rem;
+    }
+    
+    .timer-status {
+        font-size: 0.8rem;
+    }
+    
+    .time-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+    
+    .notification {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}

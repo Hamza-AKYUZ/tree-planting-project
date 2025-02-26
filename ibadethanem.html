@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoForest 2025 | İbadethanem</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Ana CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- İbadethanem CSS -->
+    <link rel="stylesheet" href="ibadethanem.css">
+    <!-- AOS Animasyon Kütüphanesi -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2310b981' class='bi bi-tree-fill' viewBox='0 0 16 16'%3E%3Cpath d='M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z'/%3E%3C/svg%3E" type="image/svg+xml">
+</head>
+<body>
+    <!-- Futuristik Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-neo">
+        <div class="container">
+            <!-- Logo ve Marka -->
+            <a class="navbar-brand" href="dershanem.html">
+                <i class="bi bi-tree-fill"></i>
+                <span>Neo<span class="text-gradient">Forest</span> <sup>2025</sup></span>
+            </a>
+            
+            <!-- Mobil Menü Butonu -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="bi bi-grid"></i>
+            </button>
+            
+            <!-- Menü Öğeleri -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dershanem.html">
+                            <div class="nav-icon"><i class="bi bi-book-half"></i></div>
+                            <span>Dershanem</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="ibadethanem.html">
+                            <div class="nav-icon"><i class="bi bi-heart-pulse"></i></div>
+                            <span>İbadethanem</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nothanem.html">
+                            <div class="nav-icon"><i class="bi bi-journal-code"></i></div>
+                            <span>Nothanem</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <div class="nav-icon"><i class="bi bi-newspaper"></i></div>
+                            <span>Haberler</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- İbadethanem İçeriği -->
+    <div class="container main-content">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Hoşgeldin Mesajı -->
+                <div class="welcome-message" data-aos="fade-down">
+                    <h1 class="text-center mb-4"><span class="text-gradient">İbadethanem</span> Sayfasına Hoş Geldiniz</h1>
+                    <p class="text-center lead">Kaza namazlarınızı takip edin ve manevi yolculuğunuzu izleyin.</p>
+                </div>
+                
+                <!-- Kaza Namazları Takip Kartı -->
+                <div class="neo-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card-glow"></div>
+                    <h2 class="section-title"><i class="bi bi-heart-pulse"></i> Kaza Namazlarım</h2>
+                    <p class="text-center mb-4">Kaza namazlarınızı takip edin ve tamamladıkça işaretleyin.</p>
+                    
+                    <div class="row">
+                        <!-- Sabah Namazı -->
+                        <div class="col-md-4 mb-4">
+                            <div class="prayer-card" data-aos="fade-up" data-aos-delay="100">
+                                <h3>Sabah Namazı</h3>
+                                <div class="prayer-counter">
+                                    <button class="counter-btn counter-minus" data-prayer="sabah">
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+                                    <div class="counter-value" id="sabah-count">0</div>
+                                    <button class="counter-btn counter-plus" data-prayer="sabah">
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Öğle Namazı -->
+                        <div class="col-md-4 mb-4">
+                            <div class="prayer-card" data-aos="fade-up" data-aos-delay="200">
+                                <h3>Öğle Namazı</h3>
+                                <div class="prayer-counter">
+                                    <button class="counter-btn counter-minus" data-prayer="ogle">
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+                                    <div class="counter-value" id="ogle-count">0</div>
+                                    <button class="counter-btn counter-plus" data-prayer="ogle">
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- İkindi Namazı -->
+                        <div class="col-md-4 mb-4">
+                            <div class="prayer-card" data-aos="fade-up" data-aos-delay="300">
+                                <h3>İkindi Namazı</h3>
+                                <div class="prayer-counter">
+                                    <button class="counter-btn counter-minus" data-prayer="ikindi">
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+                                    <div class="counter-value" id="ikindi-count">0</div>
+                                    <button class="counter-btn counter-plus" data-prayer="ikindi">
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Akşam Namazı -->
+                        <div class="col-md-4 mb-4">
+                            <div class="prayer-card" data-aos="fade-up" data-aos-delay="400">
+                                <h3>Akşam Namazı</h3>
+                                <div class="prayer-counter">
+                                    <button class="counter-btn counter-minus" data-prayer="aksam">
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+                                    <div class="counter-value" id="aksam-count">0</div>
+                                    <button class="counter-btn counter-plus" data-prayer="aksam">
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Yatsı Namazı -->
+                        <div class="col-md-4 mb-4">
+                            <div class="prayer-card" data-aos="fade-up" data-aos-delay="500">
+                                <h3>Yatsı Namazı</h3>
+                                <div class="prayer-counter">
+                                    <button class="counter-btn counter-minus" data-prayer="yatsi">
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+                                    <div class="counter-value" id="yatsi-count">0</div>
+                                    <button class="counter-btn counter-plus" data-prayer="yatsi">
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Vitir Namazı -->
+                        <div class="col-md-4 mb-4">
+                            <div class="prayer-card" data-aos="fade-up" data-aos-delay="600">
+                                <h3>Vitir Namazı</h3>
+                                <div class="prayer-counter">
+                                    <button class="counter-btn counter-minus" data-prayer="vitir">
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+                                    <div class="counter-value" id="vitir-count">0</div>
+                                    <button class="counter-btn counter-plus" data-prayer="vitir">
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary me-2" id="save-prayers">
+                            <i class="bi bi-save me-2"></i>Kaydet
+                        </button>
+                        <button class="btn btn-outline-danger" id="reset-prayers">
+                            <i class="bi bi-arrow-counterclockwise me-2"></i>Sıfırla
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- İlerleme Kartı -->
+                <div class="neo-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-glow"></div>
+                    <h2 class="section-title"><i class="bi bi-graph-up"></i> İlerleme Durumu</h2>
+                    <p class="text-center mb-4">Kaza namazlarınızdaki ilerlemenizi takip edin.</p>
+                    
+                    <div class="progress-container">
+                        <div class="row">
+                            <!-- Sabah İlerleme -->
+                            <div class="col-md-4 mb-3">
+                                <div class="prayer-progress">
+                                    <h4>Sabah</h4>
+                                    <div class="progress">
+                                        <div id="sabah-progress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                    <span id="sabah-completed">0 tamamlandı</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Öğle İlerleme -->
+                            <div class="col-md-4 mb-3">
+                                <div class="prayer-progress">
+                                    <h4>Öğle</h4>
+                                    <div class="progress">
+                                        <div id="ogle-progress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                    <span id="ogle-completed">0 tamamlandı</span>
+                                </div>
+                            </div>
+                            
+                            <!-- İkindi İlerleme -->
+                            <div class="col-md-4 mb-3">
+                                <div class="prayer-progress">
+                                    <h4>İkindi</h4>
+                                    <div class="progress">
+                                        <div id="ikindi-progress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                    <span id="ikindi-completed">0 tamamlandı</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Akşam İlerleme -->
+                            <div class="col-md-4 mb-3">
+                                <div class="prayer-progress">
+                                    <h4>Akşam</h4>
+                                    <div class="progress">
+                                        <div id="aksam-progress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                    <span id="aksam-completed">0 tamamlandı</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Yatsı İlerleme -->
+                            <div class="col-md-4 mb-3">
+                                <div class="prayer-progress">
+                                    <h4>Yatsı</h4>
+                                    <div class="progress">
+                                        <div id="yatsi-progress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                    <span id="yatsi-completed">0 tamamlandı</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Vitir İlerleme -->
+                            <div class="col-md-4 mb-3">
+                                <div class="prayer-progress">
+                                    <h4>Vitir</h4>
+                                    <div class="progress">
+                                        <div id="vitir-progress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                    <span id="vitir-completed">0 tamamlandı</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bildirim Alanı -->
+    <div class="notification" id="notification">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        <span id="notification-message">Bildirim mesajı</span>
+    </div>
+
+    <!-- Sayfa Geçiş Efekti -->
+    <div class="page-transition"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animasyon JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- İbadethanem JavaScript -->
+    <script src="ibadethanem.js"></script>
+</body>
+</html>
